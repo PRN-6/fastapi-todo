@@ -1,12 +1,12 @@
 
-from sqlalchemy import Column, Integer, String, Boolean
+# pyrefly: ignore [missing-import]
+from sqlalchemy import Column , Integer ,String,Boolean
 from database.session import Base
 
+class Task(base):
+    __tablename__ = "task"
 
-class Task(Base):
-    __tablename__ = 'tasks'
-
-    id = Column(Integer, primary_key=True, index=True)
-    title = Column(String, index=True)
-    description = Column(String, index=True)
-    completed = Column(Boolean, default=False)
+    id = Column(Integer,primarykey=True)
+    title = Column(String(50),unique=true,index=True)
+    description = Column(String)
+    completed = Column(Boolean,default=False)
